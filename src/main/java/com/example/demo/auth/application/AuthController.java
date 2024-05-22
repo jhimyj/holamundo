@@ -1,7 +1,5 @@
 package com.example.demo.auth.application;
 
-
-
 import com.example.demo.auth.domain.AuthService;
 import com.example.demo.auth.dto.JwtAuthResponse;
 import com.example.demo.auth.dto.LoginReq;

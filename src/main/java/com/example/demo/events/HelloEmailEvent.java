@@ -1,9 +1,10 @@
 package com.example.demo.events;
 
 import lombok.Getter;
+import org.springframework.context.ApplicationEvent;
 
 @Getter
-public class HelloEmailEvent {
+public class HelloEmailEvent extends ApplicationEvent {
     private final String email;
 
     public HelloEmailEvent(String email) {

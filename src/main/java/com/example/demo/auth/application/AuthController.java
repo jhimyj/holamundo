@@ -30,3 +30,8 @@ public class AuthController {
         return ResponseEntity.ok(authService.register(req));
     }
 }
+//hola se puede o ver
+//puedes escribi?
+//hhjjhjjjj
+
+//perf queda

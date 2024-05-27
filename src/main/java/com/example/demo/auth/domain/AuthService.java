@@ -5,12 +5,14 @@ import com.example.demo.auth.dto.JwtAuthResponse;
 import com.example.demo.auth.dto.LoginReq;
 import com.example.demo.auth.dto.RegisterReq;
 import com.example.demo.config.JwtService;
+import com.example.demo.events.HelloEmailEvent;
 import com.example.demo.exceptions.UserAlreadyExistException;
 import com.example.demo.user.domain.Role;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.infrastructure.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,9 @@ import java.util.Optional;
 
 @Service
 public class AuthService {
+
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
     private final UserRepository<User> userRepository;
     private final JwtService jwtService;
@@ -55,7 +60,14 @@ public class AuthService {
         userRepository.save(user1);
         JwtAuthResponse response = new JwtAuthResponse();
         response.setToken(jwtService.generateToken(user1));
+
+        //evento
+        eventPublisher.publishEvent(new HelloEmailEvent(user1.getEmail()));
+
         return response;
+
+
+
         }
 
 

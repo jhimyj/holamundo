@@ -6,7 +6,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -29,6 +31,10 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private Role role;
+
+    @Column(nullable = false)
+    private LocalDate fechaDeRegistro;
+
 
     @Transient
     private String rolePrefix = "ROLE_";

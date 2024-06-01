@@ -10,13 +10,16 @@ import com.example.demo.exceptions.UserAlreadyExistException;
 import com.example.demo.user.domain.Role;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.infrastructure.UserRepository;
+import lombok.Data;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.internal.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -57,6 +60,7 @@ public class AuthService {
         User user1 = modelMapper.map(req, User.class);
         user1.setPassword(passwordEncoder.encode(req.getPassword()));
         user1.setRole(Role.USER);
+        user1.setFechaDeRegistro(LocalDate.now());
         userRepository.save(user1);
         JwtAuthResponse response = new JwtAuthResponse();
         response.setToken(jwtService.generateToken(user1));
@@ -73,6 +77,8 @@ public class AuthService {
         User user1 = modelMapper.map(req, User.class);
         user1.setPassword(passwordEncoder.encode(req.getPassword()));
         user1.setRole(Role.ADMIN);
+
+        user1.setFechaDeRegistro(LocalDate.now());
         userRepository.save(user1);
     }
 

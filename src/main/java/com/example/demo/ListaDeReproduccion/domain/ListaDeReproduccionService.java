@@ -26,4 +26,10 @@ public class ListaDeReproduccionService {
         eventPublisher.publishEvent(new HelloEmailEvent(user.getEmail()));
         return "listasdereproduccion/"+listaDeReproduccion.getNombre();
     }
+
+    public void delete(long playlistId){
+        listaDeReproduccionRepository.deleteById(playlistId);
+    }
+
+
 }

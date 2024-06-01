@@ -20,5 +20,14 @@ public class ListaDeReproduccionController {
     //GET /playlists/{playlist_id}
     //POST /users/{user_id}/playlists
     //PUT /playlists/{playlist_id}
+
+
+
     //DELETE /playlists/{playlist_id}
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> delete(@PathVariable int playlistId){
+        listaDeReproduccionService.delete(playlistId);
+        return ResponseEntity.noContent().build();
+    }
 }

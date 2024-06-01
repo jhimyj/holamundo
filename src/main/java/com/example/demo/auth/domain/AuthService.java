@@ -66,7 +66,7 @@ public class AuthService {
         response.setToken(jwtService.generateToken(user1));
 
         //evento
-        eventPublisher.publishEvent(new HelloEmailEvent(user1.getEmail()));
+        //eventPublisher.publishEvent(new HelloEmailEvent(user1.getEmail()));
 
         return response;
     }

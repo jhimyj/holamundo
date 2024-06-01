@@ -28,7 +28,6 @@ public class ListaDeReproduccion {
 
     private Date fechaDeCreacion;
 
-    private Long id;
 
     @OneToMany(mappedBy = "listaDeReproduccion")
     private List<Cancion> canciones= new ArrayList<>();

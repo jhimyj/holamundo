@@ -24,6 +24,6 @@ public class ListaDeReproduccionService {
         listaDeReproduccion.setUser(user);
         listaDeReproduccionRepository.save(listaDeReproduccion);
         eventPublisher.publishEvent(new HelloEmailEvent(user.getEmail()));
-        return "listasdereproduccion/"+listaDeReproduccion.getId();
+        return "listasdereproduccion/"+listaDeReproduccion.getNombre();
     }
 }

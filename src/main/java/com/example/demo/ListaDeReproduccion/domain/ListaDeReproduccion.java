@@ -1,14 +1,16 @@
 package com.example.demo.ListaDeReproduccion.domain;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.example.demo.cancion.domain.Cancion;
+import com.example.demo.user.domain.User;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,5 +29,13 @@ public class ListaDeReproduccion {
     private Date fechaDeCreacion;
 
     private Long id;
+
+    @OneToMany(mappedBy = "listaDeReproduccion")
+    private List<Cancion> canciones= new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn
+    private User user;
+
 
 }

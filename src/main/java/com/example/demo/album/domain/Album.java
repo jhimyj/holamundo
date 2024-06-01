@@ -1,9 +1,12 @@
 package com.example.demo.album.domain;
 
+import com.example.demo.cancion.domain.Cancion;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Table
@@ -16,4 +19,7 @@ public class Album {
     private String nombre;
 
     private Date fechaDeLanzamiento;
+
+    @OneToMany(mappedBy = "album")
+    private List<Cancion> canciones= new ArrayList<>();
 }

@@ -17,7 +17,15 @@ public class ListaDeReproduccionController {
         return  ResponseEntity.accepted().build();
     }
     //GET /users/{user_id}/playlists
+
+
     //GET /playlists/{playlist_id}
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> traerId(@PathVariable long id){
+        return ResponseEntity.ok(listaDeReproduccionService.traerPorId(id));
+    }
+
+
     //POST /users/{user_id}/playlists
     //PUT /playlists/{playlist_id}
 

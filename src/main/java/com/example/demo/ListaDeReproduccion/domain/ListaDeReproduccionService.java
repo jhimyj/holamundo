@@ -27,9 +27,16 @@ public class ListaDeReproduccionService {
         return "listasdereproduccion/"+listaDeReproduccion.getNombre();
     }
 
+    public ListaDeReproduccion traerPorId(long id){
+        return listaDeReproduccionRepository.findById(id).orElseThrow();
+    }
+
+
     public void delete(long playlistId){
         listaDeReproduccionRepository.deleteById(playlistId);
     }
+
+
 
 
 }

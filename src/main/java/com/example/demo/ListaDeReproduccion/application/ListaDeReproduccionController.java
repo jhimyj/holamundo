@@ -11,9 +11,5 @@ public class ListaDeReproduccionController {
     @Autowired
     private ListaDeReproduccionService listaDeReproduccionService;
 
-    //GET /users/{user_id}/playlists
-    //GET /playlists/{playlist_id}
-    //POST /users/{user_id}/playlists
-    //PUT /playlists/{playlist_id}
-    //DELETE /playlists/{playlist_id}
+
 }

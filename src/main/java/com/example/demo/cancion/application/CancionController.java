@@ -28,11 +28,11 @@ public class CancionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(cancionService.createCancion(cancion));
     }
 
-    @PutMapping("/{cancionId}")
+    @PutMapping("/{id}")
     public ResponseEntity<Void> updateCancion(@RequestBody Cancion cancionUpdates,
-                                              @PathVariable int cancionId) {
+                                              @PathVariable int id) {
         try {
-            cancionService.updateCancion(cancionUpdates, cancionId);
+            cancionService.updateCancion(cancionUpdates, id);
             return ResponseEntity.ok().build();
         } catch (EntityNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
@@ -40,10 +40,10 @@ public class CancionController {
 
     }
 
-    @DeleteMapping("/{cancionId}")
-    public ResponseEntity<Void> deleteCancion(@PathVariable int cancionId) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCancion(@PathVariable int id) {
         try {
-            cancionService.deleteCancion(cancionId);
+            cancionService.deleteCancion(id);
             return ResponseEntity.noContent().build();
         } catch (EntityNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());

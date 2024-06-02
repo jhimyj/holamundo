@@ -26,7 +26,7 @@ public class CancionService {
                 .orElseThrow(() -> new EntityNotFoundException("Cancion no encontrado"));
 
         cancionToUpdate.setTitulo(cancionUpdates.getTitulo());
-        cancionToUpdate.setArtistalD(cancionUpdates.getArtistalD());
+        cancionToUpdate.setArtistaID(cancionUpdates.getArtistaID());
         cancionToUpdate.setIdAlbum(cancionUpdates.getIdAlbum());
         cancionToUpdate.setDuracion(cancionUpdates.getDuracion());
 

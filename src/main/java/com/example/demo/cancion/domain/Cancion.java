@@ -20,7 +20,7 @@ public class Cancion {
     private String titulo;
 
     @Column(nullable = false)
-    private int artistalD;
+    private int artistaID;
 
     @Column(nullable = false)
     private int idAlbum;

@@ -53,9 +53,6 @@ public class ListaDeReproduccionController {
     public ResponseEntity<ListaDeReproduccion> getLista(@PathVariable Long playlist_id) {
         return ResponseEntity.ok(listaDeReproduccionService.getLista(playlist_id));
     }
-    //GET /users/{user_id}/playlists
-    //GET /playlists/{playlist_id}
-    //POST /users/{user_id}/playlists
-    //PUT /playlists/{playlist_id}
-    //DELETE /playlists/{playlist_id}
+
+
 }
